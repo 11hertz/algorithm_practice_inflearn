@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-4. 가장 짧은 문자거리</title>
+</head>
+
+<body>
+  <script>
+    function solution(s, t) {
+      let answer = [];
+      let len = s.length;
+      let count = 1000;
+
+      for (let x of s) {
+        if (x === t) {
+          count = 0;
+        } else {
+          count += 1;
+        }
+        answer.push(count);
+      }
+
+      for (let i = len - 1; i >= 0; i--) {
+        if (s[i] === t) {
+          count = 0;
+        } else {
+          count += 1;
+        }
+        answer[i] = (answer[i] > count) ? count : answer[i];
+      }
+
+      return answer;
+    }
+
+    let str = "teachermode";
+    console.log(solution(str, 'e'));
+  </script>
+</body>
+
+</html>

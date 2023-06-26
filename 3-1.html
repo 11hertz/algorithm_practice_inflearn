@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-1. 회문 문자열</title>
+</head>
+
+<body>
+  <script>
+    function solution(s) {
+      let answer = '';
+      let txt1 = s.toLowerCase();
+      let txt2 = [...s.toLowerCase()].reverse().join('');
+
+      answer = txt1 === txt2 ? "YES" : "NO";
+
+      return answer;
+    }
+
+    let str = "gooG";
+    console.log(solution(str));
+  </script>
+</body>
+
+</html>
