@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-6. 학급 회장(해쉬)</title>
+</head>
+
+<body>
+  <script>
+    function solution(s) {
+      let answer;
+      let capVBoard = new Map();
+
+      for (let x of s) {
+        if (capVBoard.has(x)) capVBoard.set(x, capVBoard.get(x) + 1);
+        else capVBoard.set(x, 1);
+      }
+
+      let max = Number.MIN_SAFE_INTEGER;
+
+      for (let [k, v] of capVBoard) {
+        if (v > max) {
+          max = v;
+          answer = k;
+        }
+      }
+      return answer;
+    }
+
+    let str = "BACBACCACCBDEDE";
+    console.log(solution(str));
+  </script>
+</body>
+
+</html>
