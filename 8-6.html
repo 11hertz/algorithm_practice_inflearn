@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-6. 바둑이 승차 (DFS)</title>
+</head>
+
+<body>
+  <script>
+    function solution(c, arr) {
+      let answer = Number.MIN_SAFE_INTEGER;
+      let n = arr.length;
+
+      function DFS(level, sum) {
+        if (sum > c) return;
+        if (level === n) {
+          answer = Math.max(answer, sum);
+        } else {
+          DFS(level + 1, sum + arr[level]);
+          DFS(level + 1, sum);
+        }
+      }
+
+      DFS(0, 0);
+
+      return answer;
+    }
+
+    let arr = [81, 58, 42, 33, 61];
+    console.log(solution(259, arr));
+  </script>
+</body>
+
+</html>

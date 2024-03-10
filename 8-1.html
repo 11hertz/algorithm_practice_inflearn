@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-1. 재귀 함수</title>
+</head>
+
+<body>
+  <script>
+    function solution(n) {
+
+      function DFS(level) {
+        if (level === 0) return;
+        else {
+          DFS(level - 1);
+          console.log(level);
+        }
+      }
+
+      DFS(n);
+
+    }
+
+    solution(3);
+
+  </script>
+</body>
+
+</html>
